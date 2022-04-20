@@ -15,3 +15,8 @@ UPDATE src/app/app.module.ts (423 bytes) [añade el módulo BrowserAnimationsMod
 UPDATE angular.json (3377 bytes) [añade hoja de estilos css de material indigo-pink.css]
 UPDATE src/index.html (575 bytes) [añade las fuentes roboto y material icons]
 UPDATE src/styles.scss (181 bytes) [añade estilo a html y body -height 100%, margin: 0, font: Roboto]
+
+
+La creación del componente **TREE MATERIAL** se ha hecho manualmente siguiendo 
+el ejemplo facilitado en la documentación
+https://material.angular.io/components/tree/examples#tree-checklist
