@@ -3,17 +3,12 @@ import { TREE_DATA } from './virtual-assistant/data/data-to-show-at-tree';
 
 @Component({
   selector: 'app-root',
-  template: `
-
-    <app-virtual-assistant-tree
-        [dataToShow]='data2'>
-    </app-virtual-assistant-tree>
-    
-  `
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
 
-  data = TREE_DATA;
+  
+  data1 = TREE_DATA;
 
   data2 = {
     Pendiente: {
@@ -25,5 +20,7 @@ export class AppComponent {
       'Hecho 2': null,
     }
   };
+
+  data3 = {TREE_DATA};
 
 }
