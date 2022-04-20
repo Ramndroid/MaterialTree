@@ -4,6 +4,10 @@ import { AppComponent } from './app.component';
 
 // Virtual Assistant Module
 import { VirtualAssistantModule } from './virtual-assistant/virtual-assistant.module';
+import { TwoButtonsContainerModule } from './two-buttons-container/two-buttons-container.module';
+
+// Two Buttons Container Module
+
 
 
 @NgModule({
@@ -14,7 +18,9 @@ import { VirtualAssistantModule } from './virtual-assistant/virtual-assistant.mo
   imports: [
     BrowserModule,
 
-    VirtualAssistantModule // import Virtual Assistant    
+    VirtualAssistantModule, // import Virtual Assistant   
+    
+    TwoButtonsContainerModule // import Two Buttons Container
   ],
 
   providers: [],

@@ -1,11 +1,8 @@
-import { Inject, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 // MODELS
 import { TodoItemNode } from "../models/todo-item-node";
-
-// DATA
-import { TREE_DATA } from "../data/data-to-show-at-tree";
 
 
 /**
