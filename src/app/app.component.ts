@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  // FOR CASE 1 AND CASE 2
+  // FOR Two-Buttons-Container CASE 1 AND CASE 2
   data1 = {
     Groceries: {
       'Almond Meal flour': null,
@@ -34,6 +34,22 @@ export class AppComponent {
     }
   };
 
+  // FOR VIRTUAL-ASSISTANT SHOWCASE
+  data3 = {
+    Node1: {
+      'Subnode 1': null,
+      'Subnode 2': null
+    },
+    Node2: {
+      'Subnode 1': null,
+      'Subnode 2': null,
+    },
+    Node3: {
+      'Subnode 1': null,
+      'Subnode 2': null,
+    }
+  };
+
   btnResumen = (): void => {
     console.log("Ver resumen");
     alert("Ver resumen");
@@ -52,7 +68,7 @@ export class AppComponent {
     alert("Imprimir");
   }
 
-  // FOR CASE 3
+  // FOR Two-Buttons-Container CASE 3
   isButtonDisabled: boolean = true;
 
   buttonDisabledText: string = "Toca para desbloquear";
@@ -66,7 +82,6 @@ export class AppComponent {
     }
     return this.isButtonDisabled;
   }
-
 
 
 }
