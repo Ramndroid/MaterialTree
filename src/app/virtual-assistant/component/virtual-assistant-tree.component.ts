@@ -1,5 +1,5 @@
 // ANGULAR CORE
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // ANGULAR CDK
 import { SelectionModel } from '@angular/cdk/collections';
@@ -20,9 +20,16 @@ import { ChecklistDatabase } from '../service/checklist-data-base.service';
   selector: 'app-virtual-assistant-tree',
   templateUrl: './virtual-assistant-tree.component.html',
   styleUrls: ['./virtual-assistant-tree.component.scss'],
-  providers: [ChecklistDatabase]
+  providers: [ ChecklistDatabase ]
 })
 export class VirtualAssistantTreeComponent {
+
+  @Input('dataToShow') data: {} = {};
+
+  get getData(): {} {
+    return this.data;
+  }
+
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -45,18 +52,27 @@ export class VirtualAssistantTreeComponent {
   checklistSelection = new SelectionModel<TodoItemFlatNode>(true /* multiple */);
 
   constructor(private _database: ChecklistDatabase) {
+    // this._database.initialize(this.getData);
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
       this.isExpandable,
       this.getChildren,
     );
+    // this._database.initialize();
     this.treeControl = new FlatTreeControl<TodoItemFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
     _database.dataChange.subscribe((data: TodoItemNode[]) => {
       this.dataSource.data = data;
     });
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this._database.initialize(this.getData);
+    
   }
 
   getLevel = (node: TodoItemFlatNode) => node.level;

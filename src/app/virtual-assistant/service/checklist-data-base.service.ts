@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 // MODELS
@@ -21,14 +21,17 @@ export class ChecklistDatabase {
     return this.dataChange.value;
   }
 
-  constructor() {
-    this.initialize();
+  constructor(
+    // @Inject('data') private dataToCheckList: {}
+  ) {
+    // this.initialize(this.dataToCheckList);
   }
 
-  initialize() {
+  initialize(dataToSHow: {}) {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
-    const data = this.buildFileTree(TREE_DATA, 0);
+    // const data = this.buildFileTree(this.dataToCheckList, 0);
+    const data = this.buildFileTree(dataToSHow, 0);
 
     // Notify the change.
     this.dataChange.next(data);
