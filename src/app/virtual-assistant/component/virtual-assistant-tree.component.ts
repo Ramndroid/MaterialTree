@@ -1,5 +1,5 @@
 // ANGULAR CORE
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 
 // ANGULAR CDK
 import { SelectionModel } from '@angular/cdk/collections';
@@ -22,7 +22,7 @@ import { ChecklistDatabase } from '../service/checklist-data-base.service';
   styleUrls: ['./virtual-assistant-tree.component.scss'],
   providers: [ ChecklistDatabase ]
 })
-export class VirtualAssistantTreeComponent {
+export class VirtualAssistantTreeComponent implements AfterViewInit {
 
   @Input('dataToShow') data: {} = {};
 
@@ -69,10 +69,7 @@ export class VirtualAssistantTreeComponent {
   }
 
   ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
     this._database.initialize(this.getData);
-    
   }
 
   getLevel = (node: TodoItemFlatNode) => node.level;
