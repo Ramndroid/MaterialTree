@@ -23,9 +23,12 @@ export class TwoButtonsContainerComponent {
 
 
   constructor() {
+    // Main Button
     this.mainButtonText = "Main Button Text";
     this.mainButtonBackground = "primary";
     this.mainButtonDisabled = false;
+    
+    // Secondary Button
     this.secondaryButtonText = "Secondary Button Text";
     this.secondaryButtonBackground = "";
     this.secondaryButtonDisabled = false;

@@ -23,7 +23,7 @@ import { VirtualAssistantModule } from './virtual-assistant/virtual-assistant.mo
     // MATERIAL
     MatDividerModule,
 
-    // COMPONENTS MODULES
+    // COMPONENT MODULES
     TwoButtonsContainerModule,
     VirtualAssistantModule    
   ],

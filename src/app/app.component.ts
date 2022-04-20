@@ -8,6 +8,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  // FOR VIRTUAL-ASSISTANT SHOWCASE
+  data3 = {
+    Node1: {
+      'Subnode 1': null,
+      'Subnode 2': null
+    },
+    Node2: {
+      'Subnode 1': null,
+      'Subnode 2': null,
+    },
+    Node3: {
+      'Subnode 1': null,
+      'Subnode 2': null,
+    }
+  };
+
   // FOR Two-Buttons-Container CASE 1 AND CASE 2
   data1 = {
     Groceries: {
@@ -31,22 +47,6 @@ export class AppComponent {
     Hecho: {
       'Hecho 1': null,
       'Hecho 2': null,
-    }
-  };
-
-  // FOR VIRTUAL-ASSISTANT SHOWCASE
-  data3 = {
-    Node1: {
-      'Subnode 1': null,
-      'Subnode 2': null
-    },
-    Node2: {
-      'Subnode 1': null,
-      'Subnode 2': null,
-    },
-    Node3: {
-      'Subnode 1': null,
-      'Subnode 2': null,
     }
   };
 
