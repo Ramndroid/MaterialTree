@@ -1,113 +1,28 @@
+// ANGULAR CORE
+import { Component } from '@angular/core';
+
+// ANGULAR CDK
 import { SelectionModel } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component, Injectable } from '@angular/core';
+
+// ANGULAR MATERIAL
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { BehaviorSubject } from 'rxjs';
 
+// MODELS - VIRTUAL ASSISTANT
+import { TodoItemNode } from '../models/todo-item-node';
+import { TodoItemFlatNode } from '../models/todo-item-flat-node';
 
-/**
- * Node for to-do item
- */
-export class TodoItemNode {
-  children: TodoItemNode[] = [];
-  item: string = "";
-}
-
-/** Flat to-do item node with expandable and level information */
-export class TodoItemFlatNode {
-  item: string = "";
-  level: number = 0;
-  expandable: boolean = false;
-}
-
-/**
- * The Json object for to-do list data.
- */
-const TREE_DATA = {
-  Groceries: {
-    'Almond Meal flour': null,
-    'Organic eggs': null,
-    'Protein Powder': null,
-    Fruits: {
-      Apple: null,
-      Berries: ['Blueberry', 'Raspberry'],
-      Orange: null,
-    },
-  },
-  Reminders: ['Cook dinner', 'Read the Material Design spec', 'Upgrade Application to Angular'],
-};
-
-/**
- * Checklist database, it can build a tree structured Json object.
- * Each node in Json object represents a to-do item or a category.
- * If a node is a category, it has children items and new items can be added under the category.
- */
-@Injectable()
-export class ChecklistDatabase {
-  dataChange = new BehaviorSubject<TodoItemNode[]>([]);
-
-  get data(): TodoItemNode[] {
-    return this.dataChange.value;
-  }
-
-  constructor() {
-    this.initialize();
-  }
-
-  initialize() {
-    // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
-    //     file node as children.
-    const data = this.buildFileTree(TREE_DATA, 0);
-
-    // Notify the change.
-    this.dataChange.next(data);
-  }
-
-  /**
-   * Build the file structure tree. The `value` is the Json object, or a sub-tree of a Json object.
-   * The return value is the list of `TodoItemNode`.
-   */
-  buildFileTree(obj: { [key: string]: any }, level: number): TodoItemNode[] {
-    return Object.keys(obj).reduce<TodoItemNode[]>((accumulator, key) => {
-      const value = obj[key];
-      const node = new TodoItemNode();
-      node.item = key;
-
-      if (value != null) {
-        if (typeof value === 'object') {
-          node.children = this.buildFileTree(value, level + 1);
-        } else {
-          node.item = value;
-        }
-      }
-
-      return accumulator.concat(node);
-    }, []);
-  }
-
-  /** Add an item to to-do list */
-  insertItem(parent: TodoItemNode, name: string) {
-    if (parent.children) {
-      parent.children.push({ item: name } as TodoItemNode);
-      this.dataChange.next(this.data);
-    }
-  }
-
-  updateItem(node: TodoItemNode, name: string) {
-    node.item = name;
-    this.dataChange.next(this.data);
-  }
-}
-
+// SERVICE - VIRTUAL ASSISTANT
+import { ChecklistDatabase } from '../service/checklist-data-base.service';
 
 
 @Component({
-  selector: 'app-babcn32',
-  templateUrl: './babcn32.component.html',
-  styleUrls: ['./babcn32.component.scss'],
+  selector: 'app-virtual-assistant-tree',
+  templateUrl: './virtual-assistant-tree.component.html',
+  styleUrls: ['./virtual-assistant-tree.component.scss'],
   providers: [ChecklistDatabase]
 })
-export class Babcn32Component {
+export class VirtualAssistantTreeComponent {
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -139,7 +54,7 @@ export class Babcn32Component {
     this.treeControl = new FlatTreeControl<TodoItemFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-    _database.dataChange.subscribe(data => {
+    _database.dataChange.subscribe((data: TodoItemNode[]) => {
       this.dataSource.data = data;
     });
   }

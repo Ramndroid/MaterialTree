@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<app-virtual-assistant-tree></app-virtual-assistant-tree>`
 })
 export class AppComponent {
 }

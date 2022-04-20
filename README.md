@@ -1,6 +1,6 @@
-# BABCN32
+# COMPONENTE DE MATERIAL ANGULAR ANALIZADO: MAT TREE
 
-Paso 1: Instalación de Material con el comando
+Instalación de Material con el comando
                 ng add @angular/material
 
 La configuración material (según las preguntas del instalador) queda así

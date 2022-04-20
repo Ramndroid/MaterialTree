@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
+
+// Array de módulos para agilizar la importación y exportación de los módulos de Material
 const material = [
   MatTreeModule,
   MatCheckboxModule,
@@ -21,11 +23,16 @@ const material = [
 
 @NgModule({
   declarations: [],
+
   imports: [
     CommonModule,
-    BrowserAnimationsModule, // added by 'ng add @angular/material'
+    BrowserAnimationsModule,
+
     [...material]
-  ], exports: [
+  ], 
+  
+  exports: [
+
     [...material]
   ]
 })
