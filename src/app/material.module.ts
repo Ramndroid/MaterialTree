@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 
 // Array de módulos para agilizar la importación y exportación de los módulos de Material
@@ -18,7 +20,8 @@ const material = [
   MatIconModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatDividerModule
 ];
 
 @NgModule({

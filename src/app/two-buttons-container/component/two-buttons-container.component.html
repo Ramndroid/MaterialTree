@@ -1,12 +1,29 @@
-<div class="main-container">
-    <div class="card-container">
-        <div class="tree-container">
-            <ng-content></ng-content>
-        </div>
-        <div class="buttons-container">
-            <button mat-raised-button>{{ textButton }}</button>
-            <button mat-raised-button color="primary">{{ textButtonPrimary }}</button>
-        </div>
-    </div>
-</div>
+<div class="component-container">
 
+    <!-- Content -->
+    <div class="content-container">
+        <ng-content></ng-content>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons-container">
+
+        <!-- Primary Button -->
+        <button mat-raised-button 
+            [disabled]="mainButtonDisabled" 
+            [color]="mainButtonBackground" 
+            (click)="onMainButtonClick()">            
+            {{ mainButtonText }}
+        </button>
+
+        <!-- Secondary Button -->
+        <button mat-raised-button 
+            [disabled]="secondaryButtonDisabled" 
+            [color]="secondaryButtonBackground" 
+            (click)="onSecondaryButtonClick()">
+            {{ secondaryButtonText }}
+        </button>
+        
+    </div>
+
+</div>
