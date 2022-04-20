@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
-// Virtual Assistant Module
-import { VirtualAssistantModule } from './virtual-assistant/virtual-assistant.module';
-import { TwoButtonsContainerModule } from './two-buttons-container/two-buttons-container.module';
-import { MaterialModule } from './material.module';
+// MATERIAL
+import { MatDividerModule } from '@angular/material/divider';
 
 // Two Buttons Container Module
+import { TwoButtonsContainerModule } from './two-buttons-container/two-buttons-container.module';
 
+// Virtual Assistant Module
+import { VirtualAssistantModule } from './virtual-assistant/virtual-assistant.module';
 
 
 @NgModule({
@@ -19,11 +20,12 @@ import { MaterialModule } from './material.module';
   imports: [
     BrowserModule,
 
-    MaterialModule,
+    // MATERIAL
+    MatDividerModule,
 
-    VirtualAssistantModule, // import Virtual Assistant   
-    
-    TwoButtonsContainerModule // import Two Buttons Container
+    // COMPONENTS MODULES
+    TwoButtonsContainerModule,
+    VirtualAssistantModule    
   ],
 
   providers: [],

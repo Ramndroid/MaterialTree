@@ -29,7 +29,7 @@ export class TwoButtonsContainerComponent {
     this.secondaryButtonText = "Secondary Button Text";
     this.secondaryButtonBackground = "";
     this.secondaryButtonDisabled = false;
-   }
+  }
 
   onMainButtonClick() {
     if (typeof this.mainButtonFunction === 'function')

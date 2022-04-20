@@ -54,7 +54,9 @@ export class AppComponent {
 
   // FOR CASE 3
   isButtonDisabled: boolean = true;
+
   buttonDisabledText: string = "Toca para desbloquear";
+  
   btnDisable = (): boolean => {
     this.isButtonDisabled = !this.isButtonDisabled;
     if (this.isButtonDisabled) {

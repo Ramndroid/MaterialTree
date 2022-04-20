@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// MATERIAL MODULE
-import { MaterialModule } from '../material.module';
+// MATERIAL
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 // COMPONENT - TWO BUTTONS CONTAINER
 import { TwoButtonsContainerComponent } from './component/two-buttons-container.component';
@@ -14,7 +15,10 @@ import { TwoButtonsContainerComponent } from './component/two-buttons-container.
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    
+    // MATERIAL
+    BrowserAnimationsModule,
+    MatButtonModule,
   ],
   exports: [
     TwoButtonsContainerComponent
