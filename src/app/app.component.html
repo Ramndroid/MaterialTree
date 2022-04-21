@@ -1,7 +1,7 @@
 <div class="app-container">
     <!-- Case Virtual Assistant Component -->
     <section>
-        <h1 class="mat-display-2">Virtual-Assistant-Component Showcase</h1>
+        <h1 class="mat-display-2">Virtual-Assistant-Tree-Component Showcase</h1>
 
         <app-virtual-assistant-tree [dataToShow]='data1'></app-virtual-assistant-tree>
         <mat-divider></mat-divider>
@@ -15,9 +15,9 @@
 
     <!-- Two-Buttons-Container Case 1 -->
     <section>
-        <h1 class="mat-display-2">Two-Buttons-Container Showcase</h1>
+        <h1 class="mat-display-2">Buttons-Container Showcase</h1>
 
-        <h2 class="mat-headline">Case 1</h2>
+        <h2 class="mat-headline">Case 1 <span class="mat-subheading-1">Changing the button text using "mainButtonText='Guardar'" and "secondaryButtonText='Ver Resumen'"</span></h2>
         <app-two-buttons-container
             mainButtonText="Guardar"
             mainButtonBackground="primary"
@@ -33,7 +33,7 @@
     <!-- Two-Buttons-Container Case 2 -->
     <section>
         <mat-divider></mat-divider>
-        <h2 class="mat-headline">Case 2</h2>
+        <h2 class="mat-headline">Case 2 <span class="mat-subheading-1">Coloring the buttons with Material arguments using "mainButtonBackground='accent'" and "secondaryButtonBackground='warn'"</span></h2>
         <app-two-buttons-container 
             mainButtonText="Compartir" 
             mainButtonBackground="accent"
@@ -49,7 +49,7 @@
     <!-- Two-Buttons-Container Case 3 -->
     <section>
         <mat-divider></mat-divider>
-        <h2 class="mat-headline">Case 3</h2>
+        <h2 class="mat-headline">Case 3 <span class="mat-subheading-1">Enable and disable buttons using "[secondaryButtonDisabled]='isButtonDisabled'"</span></h2>
         <app-two-buttons-container 
             [mainButtonText]="buttonDisabledText" 
             [mainButtonDisabled]="false" 
